@@ -10,10 +10,16 @@ class TweetsController < ApplicationController
     redirect_to "/tweets/"
   end
 
+  def destroy
+    @tweet = Tweet.find_by(id: params[:id])
+    @tweet.destroy
+    redirect_to "/tweets/"
+  end
+
   private
     def tweet_params
      params.require(:tweet).permit(
-       :tweet
+       :tweet, :id
     )
     end
 end

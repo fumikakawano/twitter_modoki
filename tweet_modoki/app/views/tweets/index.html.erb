@@ -10,4 +10,5 @@
 <% @tweets.each do |tweet| %>
     <p><%= tweet.tweet %></p>
     <p><%= tweet.created_at %></p>
+    <%= link_to("削除", "/tweets/#{@tweet.id}", {method:"destroy"}) %>
 <% end %>
